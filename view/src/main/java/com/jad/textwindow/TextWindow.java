@@ -25,7 +25,7 @@ public class TextWindow extends JFrame {
     private final int fontHeight;
     private final JTextArea textArea;
     private final Dimension screenSize;
-    private final List<com.jad.textwindow.TWBooleanActionState> actionStates = new java.util.ArrayList<>();
+    private final List<TWBooleanActionState> actionStates = new java.util.ArrayList<>();
     private final List<TWMouseActionState> mouseStates = new java.util.ArrayList<>();
     private final JComponent glassPane;
     private Point mousePosition = new Point(0, 0);
@@ -244,7 +244,7 @@ public class TextWindow extends JFrame {
      * @return true if the action is on, false otherwise
      */
     public boolean isOn(final String action) {
-        for (com.jad.textwindow.TWBooleanActionState state : this.actionStates) {
+        for (TWBooleanActionState state : this.actionStates) {
             if (state.is(action)) return state.getValue();
         }
         return false;

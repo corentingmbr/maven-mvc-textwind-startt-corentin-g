@@ -1,6 +1,6 @@
 package com.jad.textwindow;
 
-record TWKeyboardListener(int keyEvent, com.jad.textwindow.TWBooleanActionState state) {
+record TWKeyboardListener(int keyEvent, TWBooleanActionState state) {
     public String getKey() {
         return this.state.getKey();
     }

@@ -20,31 +20,31 @@ import java.util.Objects;
  * <p>The screen width and height are in characters.</p>
  * <p>The default values are:</p>
  * <ul>
- * <li>title: {@value com.jad.textwindow.TextWindowUtils#DEFAULT_TITLE}</li>
- * <li>font: {@value com.jad.textwindow.TextWindowUtils#DEFAULT_FONT}</li>
- * <li>font size: {@value com.jad.textwindow.TextWindowUtils#DEFAULT_FONT_SIZE}</li>
+ * <li>title: {@value TextWindowUtils#DEFAULT_TITLE}</li>
+ * <li>font: {@value TextWindowUtils#DEFAULT_FONT}</li>
+ * <li>font size: {@value TextWindowUtils#DEFAULT_FONT_SIZE}</li>
  * <li>background color: {@link Color#WHITE}</li>
  * <li>foreground color: {@link Color#BLACK}</li>
- * <li>listen mouse motion: {@value com.jad.textwindow.TextWindowUtils#DEFAULT_LISTEN_MOUSE_MOTION}</li>
- * <li>listen keyboard: {@value com.jad.textwindow.TextWindowUtils#DEFAULT_LISTEN_KEYBOARD}</li>
- * <li>screen width: {@value com.jad.textwindow.TextWindowUtils#DEFAULT_SCREEN_WIDTH}</li>
- * <li>screen height: {@value com.jad.textwindow.TextWindowUtils#DEFAULT_SCREEN_HEIGHT}</li>
- * <li>mouse visibility: {@value com.jad.textwindow.TextWindowUtils#DEFAULT_MOUSE_VISIBILITY}</li>
+ * <li>listen mouse motion: {@value TextWindowUtils#DEFAULT_LISTEN_MOUSE_MOTION}</li>
+ * <li>listen keyboard: {@value TextWindowUtils#DEFAULT_LISTEN_KEYBOARD}</li>
+ * <li>screen width: {@value TextWindowUtils#DEFAULT_SCREEN_WIDTH}</li>
+ * <li>screen height: {@value TextWindowUtils#DEFAULT_SCREEN_HEIGHT}</li>
+ * <li>mouse visibility: {@value TextWindowUtils#DEFAULT_MOUSE_VISIBILITY}</li>
  * </ul>
  */
 @SuppressWarnings({"unused"})
 public final class TextWindowSettings {
 
     private final List<TWKeyboardListener> keyboardListeners = new ArrayList<>();
-    private String title = com.jad.textwindow.TextWindowUtils.DEFAULT_TITLE;
-    private float fontSize = com.jad.textwindow.TextWindowUtils.DEFAULT_FONT_SIZE;
-    private Color backgroundColor = com.jad.textwindow.TextWindowUtils.DEFAULT_BACKGROUND_COLOR;
-    private Color foregroundColor = com.jad.textwindow.TextWindowUtils.DEFAULT_FOREGROUND_COLOR;
-    private boolean listenMouse = com.jad.textwindow.TextWindowUtils.DEFAULT_LISTEN_MOUSE_MOTION;
-    private boolean listenKeyboard = com.jad.textwindow.TextWindowUtils.DEFAULT_LISTEN_KEYBOARD;
-    private int screenWidth = com.jad.textwindow.TextWindowUtils.DEFAULT_SCREEN_WIDTH;
-    private int screenHeight = com.jad.textwindow.TextWindowUtils.DEFAULT_SCREEN_HEIGHT;
-    private boolean mouseVisible = com.jad.textwindow.TextWindowUtils.DEFAULT_MOUSE_VISIBILITY;
+    private String title = TextWindowUtils.DEFAULT_TITLE;
+    private float fontSize = TextWindowUtils.DEFAULT_FONT_SIZE;
+    private Color backgroundColor = TextWindowUtils.DEFAULT_BACKGROUND_COLOR;
+    private Color foregroundColor = TextWindowUtils.DEFAULT_FOREGROUND_COLOR;
+    private boolean listenMouse = TextWindowUtils.DEFAULT_LISTEN_MOUSE_MOTION;
+    private boolean listenKeyboard = TextWindowUtils.DEFAULT_LISTEN_KEYBOARD;
+    private int screenWidth = TextWindowUtils.DEFAULT_SCREEN_WIDTH;
+    private int screenHeight = TextWindowUtils.DEFAULT_SCREEN_HEIGHT;
+    private boolean mouseVisible = TextWindowUtils.DEFAULT_MOUSE_VISIBILITY;
     private Font font;
 
     /**
@@ -98,7 +98,7 @@ public final class TextWindowSettings {
      * @param backgroundColor - the background color of the text window
      */
     public void setBackgroundColor(final Color backgroundColor) {
-        this.backgroundColor = (backgroundColor == null) ? com.jad.textwindow.TextWindowUtils.DEFAULT_BACKGROUND_COLOR :
+        this.backgroundColor = (backgroundColor == null) ? TextWindowUtils.DEFAULT_BACKGROUND_COLOR :
                 backgroundColor;
     }
 
@@ -117,7 +117,7 @@ public final class TextWindowSettings {
      * @param foregroundColor - the foreground color of the text window
      */
     public void setForegroundColor(final Color foregroundColor) {
-        this.foregroundColor = (foregroundColor == null) ? com.jad.textwindow.TextWindowUtils.DEFAULT_FOREGROUND_COLOR :
+        this.foregroundColor = (foregroundColor == null) ? TextWindowUtils.DEFAULT_FOREGROUND_COLOR :
                 foregroundColor;
     }
 
@@ -191,7 +191,7 @@ public final class TextWindowSettings {
      * @param screenWidth - the width of the text window in characters
      */
     public void setScreenWidth(final int screenWidth) {
-        this.screenWidth = Math.max(com.jad.textwindow.TextWindowUtils.MIN_SCREEN_WIDTH, screenWidth);
+        this.screenWidth = Math.max(TextWindowUtils.MIN_SCREEN_WIDTH, screenWidth);
     }
 
     /**
@@ -209,7 +209,7 @@ public final class TextWindowSettings {
      * @param screenHeight - the height of the text window in characters
      */
     public void setScreenHeight(final int screenHeight) {
-        this.screenHeight = Math.max(com.jad.textwindow.TextWindowUtils.MIN_SCREEN_HEIGHT, screenHeight);
+        this.screenHeight = Math.max(TextWindowUtils.MIN_SCREEN_HEIGHT, screenHeight);
     }
 
     List<TWKeyboardListener> getKeyboardListeners() {
@@ -231,7 +231,7 @@ public final class TextWindowSettings {
             }
         }
         final TWKeyboardListener keyboardListener = new TWKeyboardListener(keyEvent,
-                                                                           new com.jad.textwindow.TWBooleanActionState(
+                                                                           new TWBooleanActionState(
                                                                                    key));
         if (!this.listenKeyboard) this.listenKeyboard = true;
         this.keyboardListeners.add(keyboardListener);
@@ -249,7 +249,7 @@ public final class TextWindowSettings {
                                 Font.TRUETYPE_FONT,
                                 Objects.requireNonNull(
                                         TextWindow.class.getResourceAsStream(
-                                                "/" + com.jad.textwindow.TextWindowUtils.DEFAULT_FONT)))
+                                                "/" + TextWindowUtils.DEFAULT_FONT)))
                         .deriveFont(this.fontSize);
             } catch (final FontFormatException | IOException exception) {
                 throw new RuntimeException(exception);

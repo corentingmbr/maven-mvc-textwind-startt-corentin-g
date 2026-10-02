@@ -2,7 +2,7 @@ package com.jad.textwindow;
 
 import java.awt.*;
 
-final class TWMouseActionState extends com.jad.textwindow.TWActionState<Point> {
+final class TWMouseActionState extends TWActionState<Point> {
     public TWMouseActionState(final String key) {
         super(key);
         this.setValue(null);
